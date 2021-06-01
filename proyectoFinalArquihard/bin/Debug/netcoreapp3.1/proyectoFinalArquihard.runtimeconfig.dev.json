@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\prestamo\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\prestamo\\.nuget\\packages"
+    ]
+  }
+}
