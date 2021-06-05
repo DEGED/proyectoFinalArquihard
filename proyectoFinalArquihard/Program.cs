@@ -1,21 +1,23 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace proyectoFinalArquihard
 {
     class Program
     {
         private static int SIZE = 3;
+        protected static String[] timesArray = new String[6];
 
-        static void Main(string[] args)
+        static void Main(string [] args)
         {
             Program pruebaVojabes = new Program();
             pruebaVojabes.init();
-            for (int i = 1; i<13; i++)
-            {
+            //imagen que se va a leer
+            int i = 2;   
                 String path = "../../../../Imagenes/"+i+".bmp";
                 pruebaVojabes.leerImagen(path, i);
-            }
+            
             
         }
 
@@ -25,178 +27,367 @@ namespace proyectoFinalArquihard
         {
             kernel = new sbyte[][] { new sbyte[] {0, 1, 0} , new sbyte[] { 1, 4, 1 }, new sbyte[] { 0, 1, 0 } };
         }
-        static byte[] filteringAlgorithmV1(byte[] data)
+        static byte[] filteringAlgorithmV1(byte[] dataArray, int iv)
         {
-            int offset = 1078;
-            int n = (int)Math.Sqrt(data.Length - offset);
-            byte[,] C = new byte[n, n];
-            long time = DateTime.Now.Ticks;
-            for (int x = 1; x < n - 1; x++) // starts at offset + n because image upper limit of the image is ignored
-            {
-                for (int y = 1; y < n - 1; y++) // starts at 1 because
-                {
-                    for (int i = 0; i < SIZE; i++)
-                    {
-                        for (int j = 0; j < SIZE; j++)
-                        {
-                            int row = x + i - 1;
-                            int col = y + j - 1;
 
-                            C[x, y] = (byte)(C[x, y] + data[offset + row * n + col] * kernel[i][j]);
-                        }
-                    }
-                }
-            }
-            long time2 = DateTime.Now.Ticks;
-            long finalTime = (time2 - time) / 100;
-            int co = 0;
-            for (int x = 0; x < n; x++) // starts at offset + n because image upper limit of the image is ignored
-            {
-                for (int y = 0; y < n; y++) // starts at 1 because
-                {
-                    data[offset + co] = C[x, y];
-                    co++;
-                }
-            }
-
-            return data;
-        }
-
-        static byte[] filteringAlgorithmV2(byte[] data)
-        {
-            int offset = 1078;
-            int n = (int)Math.Sqrt(data.Length - offset);
-            byte[,] C = new byte[n, n];
-            long time = DateTime.Now.Ticks;
-            for (int x = 1; x < n - 1; x++) // starts at offset + n because image upper limit of the image is ignored
-            {
-                for (int y = 1; y < n - 1; y++) // starts at 1 because
-                {
-                    for (int j = 0; j < SIZE; j++)
-                    {
-                        for (int i = 0; i < SIZE; i++)
-                        {
-                            int row = x + i - 1;
-                            int col = y + j - 1;
-
-                            C[x, y] = (byte)(C[x, y] + data[offset + row * n + col] * kernel[i][j]);
-                        }
-                    }
-                }
-            }
-            long time2 = DateTime.Now.Ticks;
-            long finalTime = (time2 - time) / 100;
-            int co = 0;
-            for (int x = 0; x < n; x++) // starts at offset + n because image upper limit of the image is ignored
-            {
-                for (int y = 0; y < n; y++) // starts at 1 because
-                {
-                    data[offset + co] = C[x, y];
-                    co++;
-                }
-            }
-
-            return data;
-        }
-
-        static byte[] filteringAlgorithmV3(byte[] data)
-        {
-            int offset = 1078;
-            int n = (int)Math.Sqrt(data.Length - offset);
-            byte[,] C = new byte[n, n];
-
-            long time = DateTime.Now.Ticks;
-            for (int y = 1; y < n - 1; y++) // starts at offset + n because image upper limit of the image is ignored
-            {
-                for (int x = 1; x < n - 1; x++) // starts at 1 because
-                {
-                    for (int i = 0; i < SIZE; i++)
-                    {
-                        for (int j = 0; j < SIZE; j++)
-                        {
-                            int row = x + i - 1;
-                            int col = y + j - 1;
-
-                            C[x, y] = (byte)(C[x, y] + data[offset + row * n + col] * kernel[i][j]);
-                        }
-                    }
-                }
-            }
-            long time2 = DateTime.Now.Ticks;
-            long finalTime = (time2 - time) / 100;
-
-            int co = 0;
-            for (int x = 0; x < n; x++) // starts at offset + n because image upper limit of the image is ignored
-            {
-                for (int y = 0; y < n; y++) // starts at 1 because
-                {
-                    data[offset + co] = C[x, y];
-                    co++;
-                }
-            }
-
-            return data;
-        }
-
-        static byte[] filteringAlgorithmV4(byte[] data)
-        {
-            int offset = 1078;
-            int n = (int)Math.Sqrt(data.Length - offset);
-            byte[,] C = new byte[n, n];
-
-            long time = DateTime.Now.Ticks;
-            for (int y = 1; y < n - 1; y++) // starts at offset + n because image upper limit of the image is ignored
-            {
-                for (int x = 1; x < n - 1; x++) // starts at 1 because
-                {
-                    for (int j = 0; j < SIZE; j++)
-                    {
-                        for (int i = 0; i < SIZE; i++)
-                        {
-                            int row = x + i - 1;
-                            int col = y + j - 1;
-
-                            C[x, y] = (byte)(C[x, y] + data[offset + row * n + col] * kernel[i][j]);
-                        }
-                    }
-                }
-            }
-            long time2 = DateTime.Now.Ticks;
-            long finalTime = (time2 - time) / 100;
             
-            int co = 0;
-            for (int x = 0; x < n; x++) // starts at offset + n because image upper limit of the image is ignored
+
+            int offset = 1078;
+            int n = (int)Math.Sqrt(dataArray.Length - offset);
+            byte[,] ImageArray = new byte[n, n];
+            long time = DateTime.Now.Ticks;
+          
+
+            for (int x = 1; x < n - 1; x++)
             {
-                for (int y = 0; y < n; y++) // starts at 1 because
+                for (int y = 1; y < n - 1; y++) 
                 {
-                    data[offset + co] = C[x, y];
+                    for (int i = 0; i < SIZE; i++)
+                    {
+                        for (int j = 0; j < SIZE; j++)
+                        {
+                            int row = x + i - 1;
+                            int col = y + j - 1;
+
+                            ImageArray[x, y] = (byte)(ImageArray[x, y] + dataArray[offset + row * n + col] * kernel[i][j]);
+                        }
+                    }
+                }
+            }
+
+            long time2 = DateTime.Now.Ticks;
+            long finalTime = (time2 - time) * 100;
+            timesArray[0] = "xyij,"+finalTime;
+            int co = 0;
+            for (int x = 0; x < n; x++) 
+            {
+                for (int y = 0; y < n; y++) 
+                {
+                    dataArray[offset + co] = ImageArray[x, y];
+                    co++;
+                }
+            }
+   
+            return dataArray;
+        }
+
+        static byte[] filteringAlgorithmV2(byte[] dataArray)
+        {
+            int offset = 1078;
+            int n = (int)Math.Sqrt(dataArray.Length - offset);
+            byte[,] ImageArray = new byte[n, n];
+            long time = DateTime.Now.Ticks;
+
+            for (int x = 1; x < n - 1; x++) 
+            {
+                for (int y = 1; y < n - 1; y++) 
+                {
+                    for (int j = 0; j < SIZE; j++)
+                    {
+                        for (int i = 0; i < SIZE; i++)
+                        {
+                            int row = x + i - 1;
+                            int col = y + j - 1;
+
+                            ImageArray[x, y] = (byte)(ImageArray[x, y] + dataArray[offset + row * n + col] * kernel[i][j]);
+                        }
+                    }
+                }
+            }
+            long time2 = DateTime.Now.Ticks;
+            long finalTime = (time2 - time) * 100;
+            int co = 0;
+            timesArray[1] = "xyji,"+finalTime;
+            for (int x = 0; x < n; x++)
+            {
+                for (int y = 0; y < n; y++) 
+                {
+                    dataArray[offset + co] = ImageArray[x, y];
                     co++;
                 }
             }
 
-            return data;
+            return dataArray;
+        }
+
+        static byte[] filteringAlgorithmV3(byte[] dataArray)
+        {
+            int offset = 1078;
+            int n = (int)Math.Sqrt(dataArray.Length - offset);
+            byte[,] ImageArray = new byte[n, n];
+            long time = DateTime.Now.Ticks;
+            int maximo = offset + n * (n - 1) + 1 - n;
+
+            for (int y = 1; y < n - 1; y++) 
+            {
+                for (int x = 1; x < n - 1; x++)
+                {
+                    for (int i = 0; i < SIZE; i++)
+                    {
+                        for (int j = 0; j < SIZE; j++)
+                        {
+                            int row = x + i - 1;
+                            int col = y + j - 1;
+
+                            ImageArray[x, y] = (byte)(ImageArray[x, y] + dataArray[offset + row * n + col] * kernel[i][j]);
+                        }
+                    }
+                }
+            }
+            long time2 = DateTime.Now.Ticks;
+            long finalTime = (time2 - time) * 100;
+
+            timesArray[2] = "yxij," + finalTime;
+
+            int co = 0;
+            for (int x = 0; x < n; x++) 
+            {
+                for (int y = 0; y < n; y++) 
+                {
+                    dataArray[offset + co] = ImageArray[x, y];
+                    co++;
+                }
+            }
+
+            return dataArray;
+        }
+
+        static byte[] filteringAlgorithmV4(byte[] dataArray)
+        {
+            int offset = 1078;
+            int n = (int)Math.Sqrt(dataArray.Length - offset);
+            byte[,] ImageArray = new byte[n, n];
+
+            long time = DateTime.Now.Ticks;
+
+            int maximo = offset + n * (n - 1) + 1 - n;
+            for (int y = 1; y < n - 1; y++)
+            {
+                for (int x = 1; x < n - 1; x++) 
+                {
+                    for (int j = 0; j < SIZE; j++)
+                    {
+                        for (int i = 0; i < SIZE; i++)
+                        {
+                            int row = x + i - 1;
+                            int col = y + j - 1;
+
+                            ImageArray[x, y] = (byte)(ImageArray[x, y] + dataArray[offset + row * n + col] * kernel[i][j]);
+                        }
+                    }
+                }
+            }
+            long time2 = DateTime.Now.Ticks;
+            long finalTime = (time2 - time) * 100;
+            timesArray[3] = "yxji,"+finalTime;
+
+            int co = 0;
+            for (int x = 0; x < n; x++) 
+            {
+                for (int y = 0; y < n; y++) 
+                {
+                    dataArray[offset + co] = ImageArray[x, y];
+                    co++;
+                }
+            }
+
+            return dataArray;
+        }
+
+        static byte[] filteringAlgorithmV5(byte[] dataArray)
+        {
+            int offset = 1078;
+            int n = (int)Math.Sqrt(dataArray.Length - offset);
+            byte[,] ImageArray = new byte[n, n];
+            long time = DateTime.Now.Ticks;
+
+            for (int x = 1; x < n - 1; x++) 
+            {
+                for (int y = 1; y < n - 1; y++)
+                {
+                    ImageArray[x, y] =  (byte)(ImageArray[x, y] + dataArray[offset + x * n + (0 - 1) * n + y + 0 - 2] * kernel[0][0]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (0 - 1) * n + y + 1 - 2] * kernel[0][1]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (0 - 1) * n + y + 2 - 2] * kernel[0][2]);
+
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (1 - 1) * n + y + 0 - 2] * kernel[1][0]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (1 - 1) * n + y + 1 - 2] * kernel[1][1]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (1 - 1) * n + y + 2 - 2] * kernel[1][2]);
+
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (2 - 1) * n + y + 0 - 2] * kernel[2][0]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (2 - 1) * n + y + 1 - 2] * kernel[2][1]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (2 - 1) * n + y + 2 - 2] * kernel[2][2]);
+                }
+            }
+
+            long time2 = DateTime.Now.Ticks;
+            long finalTime = (time2 - time) * 100;
+            int co = 0;
+
+            timesArray[4] = "xy," + finalTime;
+
+            for (int x = 0; x < n; x++) 
+            {
+                for (int y = 0; y < n; y++) 
+                {
+                    dataArray[offset + co] = ImageArray[x, y];
+                    co++;
+                }
+            }
+            
+            return dataArray;
+        }
+
+        static byte[] filteringAlgorithmV6(byte[] dataArray)
+        {
+            int offset = 1078;
+            int n = (int)Math.Sqrt(dataArray.Length - offset);
+            byte[,] ImageArray = new byte[n, n];
+            long time = DateTime.Now.Ticks;
+
+            for (int y = 1; y < n - 1; y++)
+            {
+                for (int x = 1; x < n - 1; x++) 
+                {
+
+                    ImageArray[x, y] =  (byte)(ImageArray[x, y] + dataArray[offset + x * n + (0 - 1) * n + y + 0 - 2] * kernel[0][0]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (0 - 1) * n + y + 1 - 2] * kernel[0][1]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (0 - 1) * n + y + 2 - 2] * kernel[0][2]);
+
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (1 - 1) * n + y + 0 - 2] * kernel[1][0]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (1 - 1) * n + y + 1 - 2] * kernel[1][1]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (1 - 1) * n + y + 2 - 2] * kernel[1][2]);
+
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (2 - 1) * n + y + 0 - 2] * kernel[2][0]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (2 - 1) * n + y + 1 - 2] * kernel[2][1]);
+                    ImageArray[x, y] += (byte)(ImageArray[x, y] + dataArray[offset + x * n + (2 - 1) * n + y + 2 - 2] * kernel[2][2]);
+                }
+            }
+
+            long time2 = DateTime.Now.Ticks;
+            long finalTime = (time2 - time) * 100;
+            int co = 0;
+
+            timesArray[5] = "yx,"+finalTime;
+
+            for (int x = 0; x < n; x++) 
+            {
+                for (int y = 0; y < n; y++) 
+                {
+                    dataArray[offset + co] = ImageArray[x, y];
+                    co++;
+                }
+            }
+            return dataArray;
         }
 
         protected void leerImagen(String path, int i)
         {
-            // Load file meta data with FileInfo
-            FileInfo fileInfo = new FileInfo(path);
-            Console.WriteLine(fileInfo.Length);
-            // The byte[] to save the data in
-            byte[] data = new byte[fileInfo.Length];
-            // Load a filestream and put its content into the byte[]
             
+            FileInfo fileInfo = new FileInfo(path);
+            byte[] dataArray = new byte[fileInfo.Length];
+            
+
             using (FileStream fs = fileInfo.OpenRead())
             {
-                fs.Read(data, 0, data.Length);
+                fs.Read(dataArray, 0, dataArray.Length);
             }
-            byte[] imagenConFiltro = filteringAlgorithmV1(data);
-            
-            FileInfo output = new FileInfo("../../../../Imagenes/"+i+"outPut.bmp");
+            byte[] imagenConFiltro1 = filteringAlgorithmV1(dataArray, i);
+
+            FileInfo output = new FileInfo("../../../../Imagenes/" + i + "-V1-outPut.bmp");
             using (FileStream fs = output.OpenWrite())
             {
-                fs.Write(data, 0, data.Length);
+                fs.Write(dataArray, 0, dataArray.Length);
+            }
+
+           
+            
+
+            byte[] imagenConFiltro2 = filteringAlgorithmV2(dataArray);
+
+            FileInfo output2 = new FileInfo("../../../../Imagenes/" + i + "-V2-outPut.bmp");
+            using (FileStream fs = output2.OpenWrite())
+            {
+                fs.Write(dataArray, 0, dataArray.Length);
+            }
+
+           
+            
+
+            byte[] imagenConFiltro3 = filteringAlgorithmV3(dataArray);
+
+            FileInfo output3 = new FileInfo("../../../../Imagenes/" + i + "-V3-outPut.bmp");
+            using (FileStream fs = output3.OpenWrite())
+            {
+                fs.Write(dataArray, 0, dataArray.Length);
+            }
+            
+            
+
+            byte[] imagenConFiltro4 = filteringAlgorithmV4(dataArray);
+
+            FileInfo output4 = new FileInfo("../../../../Imagenes/" + i + "-V4-outPut.bmp");
+            using (FileStream fs = output4.OpenWrite())
+            {
+                fs.Write(dataArray, 0, dataArray.Length);
+            }
+            
+           
+
+            byte[] imagenConFiltro5 = filteringAlgorithmV5(dataArray);
+
+            FileInfo output5 = new FileInfo("../../../../Imagenes/" + i + "-V5-outPut.bmp");
+            using (FileStream fs = output5.OpenWrite())
+            {
+                fs.Write(dataArray, 0, dataArray.Length);
+            }
+            
+            
+
+            byte[] imagenConFiltro6 = filteringAlgorithmV6(dataArray);
+
+            FileInfo output6 = new FileInfo("../../../../Imagenes/" + i + "-V6-outPut.bmp");
+            using (FileStream fs = output6.OpenWrite())
+            {
+                fs.Write(dataArray, 0, dataArray.Length);
+            }
+            guardarTimes(timesArray, i);
+            timesArray = new String[6];
+        }
+
+        static void guardarTimes(String[] times, int i)
+        {
+            string path = @"../../../../image" + i + ".txt";
+            string timesString = "";
+            for (int j = 0; j < times.Length; j++)
+            {
+                timesString += times[j] +"\n";
+            }
+
+            try
+            {
+                
+                using (FileStream fs = File.Create(path))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes(timesString);
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }
+
+               
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            }
+            catch (IOException ioe)
+            {
+                Console.WriteLine("FFFF");
             }
         }
     }
+
 }
