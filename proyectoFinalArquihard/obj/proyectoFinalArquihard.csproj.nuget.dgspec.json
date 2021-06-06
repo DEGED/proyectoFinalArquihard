@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\prestamo\\source\\repos\\proyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj": {}
+    "C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\prestamo\\source\\repos\\proyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj": {
+    "C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\prestamo\\source\\repos\\proyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj",
+        "projectUniqueName": "C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj",
         "projectName": "proyectoFinalArquihard",
-        "projectPath": "C:\\Users\\prestamo\\source\\repos\\proyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj",
-        "packagesPath": "C:\\Users\\prestamo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\prestamo\\source\\repos\\proyectoFinalArquihard\\proyectoFinalArquihard\\obj\\",
+        "projectPath": "C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj",
+        "packagesPath": "C:\\Users\\Liason01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\prestamo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Liason01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
