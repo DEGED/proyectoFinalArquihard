@@ -4,5 +4,12 @@
   "success": true,
   "projectFilePath": "C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

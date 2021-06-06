@@ -14,9 +14,10 @@ namespace proyectoFinalArquihard
             Program pruebaVojabes = new Program();
             pruebaVojabes.init();
             //imagen que se va a leer
-            int i = 2;   
-                String path = "../../../../Imagenes/"+i+".bmp";
-                pruebaVojabes.leerImagen(path, i);
+            int i = 4;
+            //cambiar general por su respectivo cache
+            String path = "../../../../Imagenes/general/" + i+".bmp";
+            pruebaVojabes.leerImagen(path, i);
             
             
         }
@@ -293,7 +294,7 @@ namespace proyectoFinalArquihard
             }
             byte[] imagenConFiltro1 = filteringAlgorithmV1(dataArray, i);
 
-            FileInfo output = new FileInfo("../../../../Imagenes/" + i + "-V1-outPut.bmp");
+            FileInfo output = new FileInfo("../../../../Imagenes/general/" + i + "-V1-outPut.bmp");
             using (FileStream fs = output.OpenWrite())
             {
                 fs.Write(dataArray, 0, dataArray.Length);
@@ -304,7 +305,7 @@ namespace proyectoFinalArquihard
 
             byte[] imagenConFiltro2 = filteringAlgorithmV2(dataArray);
 
-            FileInfo output2 = new FileInfo("../../../../Imagenes/" + i + "-V2-outPut.bmp");
+            FileInfo output2 = new FileInfo("../../../../Imagenes/general/" + i + "-V2-outPut.bmp");
             using (FileStream fs = output2.OpenWrite())
             {
                 fs.Write(dataArray, 0, dataArray.Length);
@@ -315,7 +316,7 @@ namespace proyectoFinalArquihard
 
             byte[] imagenConFiltro3 = filteringAlgorithmV3(dataArray);
 
-            FileInfo output3 = new FileInfo("../../../../Imagenes/" + i + "-V3-outPut.bmp");
+            FileInfo output3 = new FileInfo("../../../../Imagenes/general/" + i + "-V3-outPut.bmp");
             using (FileStream fs = output3.OpenWrite())
             {
                 fs.Write(dataArray, 0, dataArray.Length);
@@ -325,7 +326,7 @@ namespace proyectoFinalArquihard
 
             byte[] imagenConFiltro4 = filteringAlgorithmV4(dataArray);
 
-            FileInfo output4 = new FileInfo("../../../../Imagenes/" + i + "-V4-outPut.bmp");
+            FileInfo output4 = new FileInfo("../../../../Imagenes/general/" + i + "-V4-outPut.bmp");
             using (FileStream fs = output4.OpenWrite())
             {
                 fs.Write(dataArray, 0, dataArray.Length);
@@ -335,7 +336,7 @@ namespace proyectoFinalArquihard
 
             byte[] imagenConFiltro5 = filteringAlgorithmV5(dataArray);
 
-            FileInfo output5 = new FileInfo("../../../../Imagenes/" + i + "-V5-outPut.bmp");
+            FileInfo output5 = new FileInfo("../../../../Imagenes/general/" + i + "-V5-outPut.bmp");
             using (FileStream fs = output5.OpenWrite())
             {
                 fs.Write(dataArray, 0, dataArray.Length);
@@ -345,7 +346,7 @@ namespace proyectoFinalArquihard
 
             byte[] imagenConFiltro6 = filteringAlgorithmV6(dataArray);
 
-            FileInfo output6 = new FileInfo("../../../../Imagenes/" + i + "-V6-outPut.bmp");
+            FileInfo output6 = new FileInfo("../../../../Imagenes/general/" + i + "-V6-outPut.bmp");
             using (FileStream fs = output6.OpenWrite())
             {
                 fs.Write(dataArray, 0, dataArray.Length);
@@ -356,13 +357,62 @@ namespace proyectoFinalArquihard
 
         static void guardarTimes(String[] times, int i)
         {
-            string path = @"../../../../image" + i + ".txt";
+            string path = @"../../../../Imagenes" + i + ".txt";
             string timesString = "";
             for (int j = 0; j < times.Length; j++)
             {
                 timesString += times[j] +"\n";
             }
 
+            if (i == 1)
+            {
+                timesString += "tamaño : 100";
+            }else if (i == 2)
+            {
+                timesString += "tamaño : 120";
+            }
+            else if (i == 3)
+            {
+                timesString += "tamaño : 170";
+            }
+            else if (i == 4)
+            {
+                timesString += "tamaño : 176";
+            }
+            else if (i == 5)
+            {
+                timesString += "tamaño : 240";
+            }
+            else if (i == 6)
+            {
+                timesString += "tamaño : 350";
+            }
+            else if (i == 7)
+            {
+                timesString += "tamaño : 400";
+            }
+            else if (i == 8)
+            {
+                timesString += "tamaño : 510";
+            }
+
+            //Cada uno cambio de aqui en adelante el tamaño
+            else if (i == 9)
+            {
+                timesString += "tamaño : 886";
+            }
+            else if (i == 10)
+            {
+                timesString += "tamaño : 1250";
+            }
+            else if (i == 11)
+            {
+                timesString += "tamaño : 1550";
+            }
+            else if (i == 12)
+            {
+                timesString += "tamaño : 1750";
+            }
             try
             {
                 
