@@ -14,9 +14,9 @@ namespace proyectoFinalArquihard
             Program pruebaVojabes = new Program();
             pruebaVojabes.init();
             //imagen que se va a leer
-            int i = 4;
+            int i = 12;
             //cambiar general por su respectivo cache
-            String path = "../../../../Imagenes/general/" + i+".bmp";
+            String path = "../../../../Imagenes/cacheAlejo/" + i+".bmp";
             pruebaVojabes.leerImagen(path, i);
             
             
@@ -26,7 +26,7 @@ namespace proyectoFinalArquihard
 
         private void init()
         {
-            kernel = new sbyte[][] { new sbyte[] {0, 1, 0} , new sbyte[] { 1, 4, 1 }, new sbyte[] { 0, 1, 0 } };
+            kernel = new sbyte[][] { new sbyte[] {0, 1, 0} , new sbyte[] { 1,-4, 1 }, new sbyte[] { 0, 1, 0 } };
         }
         static byte[] filteringAlgorithmV1(byte[] dataArray, int iv)
         {
@@ -58,7 +58,7 @@ namespace proyectoFinalArquihard
 
             long time2 = DateTime.Now.Ticks;
             long finalTime = (time2 - time) * 100;
-            timesArray[0] = "xyij,"+finalTime;
+            timesArray[0] = "1-xyij,"+finalTime;
             int co = 0;
             for (int x = 0; x < n; x++) 
             {
@@ -98,7 +98,7 @@ namespace proyectoFinalArquihard
             long time2 = DateTime.Now.Ticks;
             long finalTime = (time2 - time) * 100;
             int co = 0;
-            timesArray[1] = "xyji,"+finalTime;
+            timesArray[1] = "2-xyji,"+finalTime;
             for (int x = 0; x < n; x++)
             {
                 for (int y = 0; y < n; y++) 
@@ -138,7 +138,7 @@ namespace proyectoFinalArquihard
             long time2 = DateTime.Now.Ticks;
             long finalTime = (time2 - time) * 100;
 
-            timesArray[2] = "yxij," + finalTime;
+            timesArray[2] = "3-yxij," + finalTime;
 
             int co = 0;
             for (int x = 0; x < n; x++) 
@@ -180,7 +180,7 @@ namespace proyectoFinalArquihard
             }
             long time2 = DateTime.Now.Ticks;
             long finalTime = (time2 - time) * 100;
-            timesArray[3] = "yxji,"+finalTime;
+            timesArray[3] = "4-yxji,"+finalTime;
 
             int co = 0;
             for (int x = 0; x < n; x++) 
@@ -224,7 +224,7 @@ namespace proyectoFinalArquihard
             long finalTime = (time2 - time) * 100;
             int co = 0;
 
-            timesArray[4] = "xy," + finalTime;
+            timesArray[4] = "5-xy," + finalTime;
 
             for (int x = 0; x < n; x++) 
             {
@@ -268,7 +268,7 @@ namespace proyectoFinalArquihard
             long finalTime = (time2 - time) * 100;
             int co = 0;
 
-            timesArray[5] = "yx,"+finalTime;
+            timesArray[5] = "6-yx,"+finalTime;
 
             for (int x = 0; x < n; x++) 
             {
