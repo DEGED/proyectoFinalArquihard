@@ -16,7 +16,7 @@ namespace proyectoFinalArquihard
             //imagen que se va a leer
             int i = 12;
             //cambiar general por su respectivo cache
-            String path = "../../../../Imagenes/cacheAlejo/" + i+".bmp";
+            String path = "../../../../Imagenes/cacheLectamo/" + i+".bmp";
             pruebaVojabes.leerImagen(path, i);
             
             
@@ -399,19 +399,19 @@ namespace proyectoFinalArquihard
             //Cada uno cambio de aqui en adelante el tamaño
             else if (i == 9)
             {
-                timesString += "tamaño : 886";
+                timesString += "tamaño : 1550";
             }
             else if (i == 10)
             {
-                timesString += "tamaño : 1250";
+                timesString += "tamaño : 2172";
             }
             else if (i == 11)
             {
-                timesString += "tamaño : 1550";
+                timesString += "tamaño : 2660";
             }
             else if (i == 12)
             {
-                timesString += "tamaño : 1750";
+                timesString += "tamaño : 3070";
             }
             try
             {

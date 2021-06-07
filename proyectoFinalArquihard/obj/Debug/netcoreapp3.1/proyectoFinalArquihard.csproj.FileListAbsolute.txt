@@ -24,3 +24,16 @@ C:\Users\Liason01\Desktop\Proyectos\C++\ProyectoFinalArquihard\proyectoFinalArqu
 C:\Users\Liason01\Desktop\Proyectos\C++\ProyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.dll
 C:\Users\Liason01\Desktop\Proyectos\C++\ProyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.pdb
 C:\Users\Liason01\Desktop\Proyectos\C++\ProyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.genruntimeconfig.cache
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\bin\Debug\netcoreapp3.1\proyectoFinalArquihard.exe
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\bin\Debug\netcoreapp3.1\proyectoFinalArquihard.deps.json
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\bin\Debug\netcoreapp3.1\proyectoFinalArquihard.runtimeconfig.json
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\bin\Debug\netcoreapp3.1\proyectoFinalArquihard.runtimeconfig.dev.json
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\bin\Debug\netcoreapp3.1\proyectoFinalArquihard.dll
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\bin\Debug\netcoreapp3.1\proyectoFinalArquihard.pdb
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.csprojAssemblyReference.cache
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.AssemblyInfoInputs.cache
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.AssemblyInfo.cs
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.csproj.CoreCompileInputs.cache
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.dll
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.pdb
+C:\Users\R00TKIT\Documents\ArquiHard\Final\proyectoFinalArquihard\proyectoFinalArquihard\obj\Debug\netcoreapp3.1\proyectoFinalArquihard.genruntimeconfig.cache

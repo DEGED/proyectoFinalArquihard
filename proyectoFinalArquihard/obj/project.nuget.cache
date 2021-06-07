@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2cqHLj84Fcynb+UAi2GdFbZaBmWEppq5m/0u1dfmKSK4l8khmPQeJZN4rHc6CgUpiyOW55mndynV9TiJB5bKGQ==",
+  "dgSpecHash": "lYJK62i0aAGVSwFhlKm5TpROA+eBG7kxVBz4yg8ltDx9jIYLDCI46o0fyeXN5piy/LODT91GlC4UN201GAIHUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj",
+  "projectFilePath": "C:\\Users\\R00TKIT\\Documents\\ArquiHard\\Final\\proyectoFinalArquihard\\proyectoFinalArquihard\\proyectoFinalArquihard.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\Liason01\\Desktop\\Proyectos\\C++\\ProyectoFinalArquihard\\proyectoFinalArquihard\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
