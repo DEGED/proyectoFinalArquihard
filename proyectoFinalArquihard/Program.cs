@@ -30,9 +30,6 @@ namespace proyectoFinalArquihard
         }
         static byte[] filteringAlgorithmV1(byte[] dataArray, int iv)
         {
-
-            
-
             int offset = 1078;
             int n = (int)Math.Sqrt(dataArray.Length - offset);
             byte[,] ImageArray = new byte[n, n];
